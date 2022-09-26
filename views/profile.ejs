@@ -1,46 +1,51 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div>
-          <div class="mt-5">
-            <h2>Add a post</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
+
+<section class="dashboard">
+  <p><i class="fa-solid fa-life-ring"></i> Welcome to Your Dashboard:<%= user.userName %></p>
+
+      <section class="dashboard-options">
+        <div class="dashboard-options_box"><h3>Create a Lesson</h3><i class="fa-solid fa-pencil"></i></div>
+        <div class="dashboard-options_box"><h3>Saved Lessons</h3><i class="fa-solid fa-anchor"></i></i></div>
+        <div class="dashboard-options_box"><h3>Browse All</h3><i class="fa-solid fa-fish"></i></div>
+      </section>      
+</section>
+<h1>Browse  <%= user.userName.toUpperCase() %>'S LESSONS</h1> 
+    
+            <h2>Share a lesson:</h2>
+            <form action="/post/createLesson" enctype="multipart/form-data" method="POST">
+              <div>
+                  <label for="title" class="form-label">Book Title</label>
                   <input type="text" class="form-control" id="title" name="title">
               </div>
-              <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
+              <div>
+                <label for="author" class="form-label">Author</label>
+                <input type="text" class="form-control" id="author" name="author">
               </div>
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
+              <div>
+                   <label for="vocabSkill">Choose a vocabulary skill:</label>
+                          <select name="vocabSkill" id="vocabSkill">
+                            <option value="antonyms">Antonyms</option>
+                            <option value="compoundWords">Compound Words</option>
+                            <option value="contextClues">Context Clues</option>
+                            <option value="prefixesAndSuffixes">Prefixes and Suffixes</option>
+                            <option value="multipleMeaningWords">Multiple Meaning Words</option>
+                            <option value="synonyms">Synonyms</option>
+                            <option value="shadesOfMeaning">Shades of Meaning</option>
+                            <option value="idioms">Idioms</option>
+                            <option value="greekAndLatinRoots">Greek and Latin Roots</option>                   
+                          </select>
               </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+              <div>
+                <label for="intro" class="form-label">Book Introduction</label>
+                <textarea class="form-control" id="intro" name="intro"></textarea>
+              </div>
+              <div>
+                <label for="activity" class="form-label">Journal Activity</label>
+                <textarea class="form-control" id="activity" name="activity"></textarea>
+              </div>
+              <button type="submit" value="Upload">Submit</button>
             </form>
-          </div>
-      </div>
-      <div class="col-6">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>  
-      </div>  
-    </div>
-  </div>
-</div>
+ 
+
+
 <%- include('partials/footer') -%>

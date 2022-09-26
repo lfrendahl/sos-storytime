@@ -1,0 +1,122 @@
+* {
+font-family: 'Lato', sans-serif;
+font-size: 20px;
+text-decoration: none;
+list-style: none;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color:  #F55;
+    margin: auto;
+    
+}
+
+.logo {
+    display: flex;
+    width: 40%;
+    border:2px solid green;
+}
+
+.logo div {
+    border:2px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.logo div * {
+    margin: 0 0;
+    font-size:25px;
+}
+.initials {
+    font-family: 'Fredoka One', cursive;
+    font-size:65px;
+    margin: 0 0;
+    padding-left: 30px;
+    border:2px solid brown;
+}
+
+nav ul {
+    display: flex;
+    width: 60%;
+    justify-content: flex-end;
+    border:2px solid purple;
+    padding-right: 30px;
+
+}
+
+nav ul * {
+    padding-right: 20px;
+}
+
+
+a {
+    text-decoration: none;
+}
+a:link, a:visited {
+    color: white;
+}
+a:hover {
+    color: black;
+}
+
+
+
+/******************   Profile   ***********************/
+.dashboard {
+    width: 100%;
+    height: 400px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard p:first-child {
+    font-size: 35px;
+    font-weight: 700;
+    margin: 40px 0 0 0;
+}
+
+.dashboard .username {
+    font-family: 'Fredoka One', cursive;
+}
+.dashboard-options {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.dashboard-options_box {
+    width: 200px;
+    height: 60px;
+    background-color: #38468b;
+    border: 2px solid  #6963c7;
+    border-radius: 15px; 
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.dashboard-options_box * {
+    color: white;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.footer {
+    background-color: #F55;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+}
+
+.footer span {
+    font-size: 15px;
+}
