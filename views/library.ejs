@@ -18,19 +18,17 @@
     <input id="search" type="search" placeholder="Input title..."> 
 </section>
 
-      <ul>
- 
+          <ul>
               <%lessons.reverse().forEach(lesson=>{ %>  
                 <li>
-                  <a href="/" style="color:blue;">
-                    <h2>Title: <%=lesson.bookTitle%></h2>
-                    <span>Author: <%=lesson.bookAuthor%></span>
-                    <h4>Type: <%=lesson.vocabSkill%></h4></a>
-           
-                    <%})%>
-                  
+                   <a href="/lessons/<%=lesson._id%>" style="color:blue;">
+                        <h2>Title: <%=lesson.bookTitle%></h2>
+                        <span>Author: <%=lesson.bookAuthor%></span>
+                        <h4>Vocabulary Skill: <%=lesson.vocabSkill%></h4>
+                    </a>
+              <%})%>              
                 </li>  
                           
-        </ul>
+          </ul>
 
 <%- include('partials/footer') -%>

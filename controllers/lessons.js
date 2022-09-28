@@ -1,4 +1,5 @@
 const Lesson = require("../models/Lesson");
+const User = require("../models/User");
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -19,8 +20,9 @@ module.exports = {
   },
   getLesson: async (req, res) => {
     try {
-      const lesson = await Lesson.findById(req.params.id);
-      res.render("lesson.ejs", { lessons: lessons, user: req.user});
+      const lesson = await Lesson.findById(req.params.id)
+      const author = await User.findById(lesson.user) 
+      res.render("lesson.ejs", { lesson: lesson, user: req.user, author: author});
     } catch (err) {
       console.log(err);
     }

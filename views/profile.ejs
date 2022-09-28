@@ -25,62 +25,17 @@
 
 <section>
 
-  <a href="/" style="color:blue;">
-    
+   
     <%lessons.reverse().forEach(lesson=>{ %>    
+           <a href="/lessons/<%=lesson._id%>" style="color:blue;">
                   <h2>Title: <%=lesson.bookTitle%></h2>
                   <span>Author: <%=lesson.bookAuthor%></span>
-                  <h4>Type: <%=lesson.vocabSkill%></h4></a>
+                  <h4>Type: <%=lesson.vocabSkill%></h4>
+           </a>
          
                   <%})%>
 </section>
           
-  <!-- CONTACT MODAL -->
-  <!-- 
- <div class="popup-position" id="contact-popup">
-  <%- include('partials/modal') -%>
-</div>-->
-
-<div class="popup-wrapper">
-  <div id="popup-container">
-      <h5>Contact Us</h5>
-      <form>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control">
-          </div>
-          <div class="form-group">
-              <label for="message">Message</label>
-              <textarea class="form-control"></textarea>
-          </div>
-      </form>
-      <div class="modal-footer">
-        <button class="btn btn-primary btn-block">Submit</button>
-        <p><a herf="javascript:void(0)" onclick="toggle_visibility('contact-popup');">Close Popup</a></p>
-      </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
             <h2>Share a lesson:</h2>
             <form action="/lessons/createLesson" method="POST">
               <div>
@@ -94,15 +49,15 @@
               <div>
                    <label for="vocabSkill">Choose a vocabulary skill:</label>
                           <select name="vocabSkill" id="vocabSkill">
-                            <option value="antonyms">Antonyms</option>
-                                <option value="compoundWords">Compound Words</option>
-                                <option value="contextClues">Context Clues</option>
-                                <option value="greekAndLatinRoots">Greek and Latin Roots</option>                   
-                                <option value="idioms">Idioms</option>
-                                <option value="multipleMeaningWords">Multiple Meaning Words</option>
-                                <option value="prefixesAndSuffixes">Prefixes and Suffixes</option>
-                                <option value="shadesOfMeaning">Shades of Meaning</option>
-                                <option value="synonyms">Synonyms</option>                                        
+                            <option value="Antonyms">Antonyms</option>
+                                <option value="Compound Words">Compound Words</option>
+                                <option value="Context Clues">Context Clues</option>
+                                <option value="Greek and Latin Roots">Greek and Latin Roots</option>                   
+                                <option value="Idioms">Idioms</option>
+                                <option value="Multiple Meaning Words">Multiple Meaning Words</option>
+                                <option value="Prefixes and Suffixes">Prefixes and Suffixes</option>
+                                <option value="Shades of Meaning">Shades of Meaning</option>
+                                <option value="Synonyms">Synonyms</option>                                        
                           </select>
               </div>
               <div>
