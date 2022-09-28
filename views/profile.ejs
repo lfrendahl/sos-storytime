@@ -10,40 +10,73 @@
       </section>      
 </section>
 <h1>Browse  <%= user.userName.toUpperCase() %>'S LESSONS</h1> 
+
+
+
+<section>
+
+  <a href="/" style="color:blue;">
+    
+    <%lessons.reverse().forEach(lesson=>{ %>    
+                  <h2>Title: <%=lesson.bookTitle%></h2>
+                  <span>Author: <%=lesson.bookAuthor%></span>
+                  <h4>Type: <%=lesson.vocabSkill%></h4></a>
+         
+                  <%})%>
+</section>
+          
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
             <h2>Share a lesson:</h2>
-            <form action="/post/createLesson" enctype="multipart/form-data" method="POST">
+            <form action="/lessons/createLesson" method="POST">
               <div>
-                  <label for="title" class="form-label">Book Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
+                  <label for="bookTitle">Book Title</label>
+                  <input type="text" id="bookTitle" name="bookTitle">
               </div>
               <div>
-                <label for="author" class="form-label">Author</label>
-                <input type="text" class="form-control" id="author" name="author">
+                <label for="bookAuthor" >Author</label>
+                <input type="text" id="bookAuthor" name="bookAuthor">
               </div>
               <div>
                    <label for="vocabSkill">Choose a vocabulary skill:</label>
                           <select name="vocabSkill" id="vocabSkill">
                             <option value="antonyms">Antonyms</option>
-                            <option value="compoundWords">Compound Words</option>
-                            <option value="contextClues">Context Clues</option>
-                            <option value="prefixesAndSuffixes">Prefixes and Suffixes</option>
-                            <option value="multipleMeaningWords">Multiple Meaning Words</option>
-                            <option value="synonyms">Synonyms</option>
-                            <option value="shadesOfMeaning">Shades of Meaning</option>
-                            <option value="idioms">Idioms</option>
-                            <option value="greekAndLatinRoots">Greek and Latin Roots</option>                   
+                                <option value="compoundWords">Compound Words</option>
+                                <option value="contextClues">Context Clues</option>
+                                <option value="greekAndLatinRoots">Greek and Latin Roots</option>                   
+                                <option value="idioms">Idioms</option>
+                                <option value="multipleMeaningWords">Multiple Meaning Words</option>
+                                <option value="prefixesAndSuffixes">Prefixes and Suffixes</option>
+                                <option value="shadesOfMeaning">Shades of Meaning</option>
+                                <option value="synonyms">Synonyms</option>                                        
                           </select>
               </div>
               <div>
-                <label for="intro" class="form-label">Book Introduction</label>
-                <textarea class="form-control" id="intro" name="intro"></textarea>
+                <label for="lessonIntro">Book Introduction</label>
+                <textarea id="lessonIntro" name="lessonIntro"></textarea>
               </div>
               <div>
-                <label for="activity" class="form-label">Journal Activity</label>
-                <textarea class="form-control" id="activity" name="activity"></textarea>
+                <label for="lessonActivity">Journal Activity</label>
+                <textarea id="lessonActivity" name="lessonActivity"></textarea>
               </div>
-              <button type="submit" value="Upload">Submit</button>
+              <button type="submit">Submit</button>
             </form>
  
 

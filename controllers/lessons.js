@@ -1,5 +1,4 @@
 const Lesson = require("../models/Lesson");
-const Comment = require("../models/Comment");
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -13,7 +12,7 @@ module.exports = {
   getLessons: async (req, res) => {
     try {
       const lessons = await Lesson.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { lessons: lessons });
+      res.render("library.ejs", { lessons: lessons, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -21,22 +20,24 @@ module.exports = {
   getLesson: async (req, res) => {
     try {
       const lesson = await Lesson.findById(req.params.id);
-      const comments = await Comment.find({lesson: req.params.id}).sort({ createdAt: "desc"}).lean();
-      res.render("lesson.ejs", { bookTitle: bookTitle, bookAuthor: bookAuthor, lessonIntro: lessonIntro, lessonActivity: lessonActivity, user: req.user,});
+      res.render("lesson.ejs", { lessons: lessons});
     } catch (err) {
       console.log(err);
     }
   },
   createLesson: async (req, res) => {
     try {
-         await Lesson.create({
-        title: req.body.title,
-        caption: req.body.caption,
-        likes: 0,
-        user: req.user.id,
-      });
-      console.log("Lesson has been added!");
-      res.redirect("/profile");
+      await Lesson.create({
+        bookTitle: req.body.bookTitle,
+        bookAuthor: req.body.bookAuthor, 
+        vocabSkill: req.body.vocabSkill,
+        lessonIntro: req.body.lessonIntro, 
+        lessonActivity: req.body.lessonActivity, 
+        user: req.user,
+    });
+    console.log("Lesson has been added!");
+    res.redirect("/profile");
+
     } catch (err) {
       console.log(err);
     }

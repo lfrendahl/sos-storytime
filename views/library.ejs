@@ -1,0 +1,36 @@
+<%- include('partials/header') -%>
+
+<section class="lessonFilterOptions">
+  <h2> Filter the lessons you see by vocabulary skill: </h2>
+  <select name="vocabSkill" id="vocabSkill">
+    <option value="value" selected>Choose a skill</option>
+    <option value="antonyms">Antonyms</option>
+    <option value="compoundWords">Compound Words</option>
+    <option value="contextClues">Context Clues</option>
+    <option value="greekAndLatinRoots">Greek and Latin Roots</option>                   
+    <option value="idioms">Idioms</option>
+    <option value="multipleMeaningWords">Multiple Meaning Words</option>
+    <option value="prefixesAndSuffixes">Prefixes and Suffixes</option>
+    <option value="shadesOfMeaning">Shades of Meaning</option>
+    <option value="synonyms">Synonyms</option>
+  </select>
+  <h2> Or by book title: </h2>
+    <input id="search" type="search" placeholder="Input title..."> 
+</section>
+
+      <ul>
+ 
+              <%lessons.reverse().forEach(lesson=>{ %>  
+                <li>
+                  <a href="/" style="color:blue;">
+                    <h2>Title: <%=lesson.bookTitle%></h2>
+                    <span>Author: <%=lesson.bookAuthor%></span>
+                    <h4>Type: <%=lesson.vocabSkill%></h4></a>
+           
+                    <%})%>
+                  
+                </li>  
+                          
+        </ul>
+
+<%- include('partials/footer') -%>

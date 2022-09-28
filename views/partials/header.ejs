@@ -31,14 +31,16 @@
              </div>
             </section>
           <ul>
-         <!-- Logged in Only
-              <li> <a href="/browse">Browse</a> </li> 
-              <li> <a href="/user">Dashboard</a></li>
+            <%if(user){%>
+              <li> <a href="/lessons">Browse</a> </li> 
+              <li> <a href="/profile">Profile</a></li>
               <li> <a href="/logout">Logout</a></li>
-         -->
+            <%}else{ %>
               <li> <a href="/lessons"></i>Browse</a> </li> 
               <li> <a href="/login">Login</a></li>
               <li> <a href="/signup">Signup</a></li>
+            <%}%>
+
          
           </ul>
         </nav> 
