@@ -20,7 +20,7 @@ module.exports = {
   getLesson: async (req, res) => {
     try {
       const lesson = await Lesson.findById(req.params.id);
-      res.render("lesson.ejs", { lessons: lessons});
+      res.render("lesson.ejs", { lessons: lessons, user: req.user});
     } catch (err) {
       console.log(err);
     }

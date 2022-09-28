@@ -1,3 +1,13 @@
+<%    function toggle_visibility(id) { %> 
+  <% let e = document.getElementById(id); %>
+
+  <%  if(e.style.display == 'block') { %>
+      <%  e.style.display = 'none'; %>
+      <%  } else { %>
+          <%  e.style.display = 'block'; %>
+          <%    } %>
+          <%  } %>
+
 <%- include('partials/header') -%>
 
 <section class="dashboard">
@@ -25,7 +35,34 @@
                   <%})%>
 </section>
           
-  
+  <!-- CONTACT MODAL -->
+  <!-- 
+ <div class="popup-position" id="contact-popup">
+  <%- include('partials/modal') -%>
+</div>-->
+
+<div class="popup-wrapper">
+  <div id="popup-container">
+      <h5>Contact Us</h5>
+      <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control">
+          </div>
+          <div class="form-group">
+              <label for="message">Message</label>
+              <textarea class="form-control"></textarea>
+          </div>
+      </form>
+      <div class="modal-footer">
+        <button class="btn btn-primary btn-block">Submit</button>
+        <p><a herf="javascript:void(0)" onclick="toggle_visibility('contact-popup');">Close Popup</a></p>
+      </div>
+  </div>
 
 
 
