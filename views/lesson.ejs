@@ -3,13 +3,35 @@
 Show one specific lesson and let you edit like save copy and more.
 
 
-<h2>Title: <%=lesson.bookTitle%></h2>
-<h4>Author: <%=lesson.bookAuthor%></h4>
-<h4>Type: <%=lesson.vocabSkill%></h4>
-<h4>Type: <%=lesson.lessonIntro%></h4>
-<h4>Type: <%=lesson.lessonActivity%></h4>
+<div id="copyMe">
+        <h2>Title: <%=lesson.bookTitle%></h2>
+        <h4>Author: <%=lesson.bookAuthor%></h4>
+        <h4>Skill: <%=lesson.vocabSkill%></h4>
+        <h4>Lesson Introduction: <%=lesson.lessonIntro%></h4>
+        <h4>Journal Activity: <%=lesson.lessonActivity%></h4>
+</div>
 
-<span>Thanks <%=lesson.user%>, <%=user.userName%>  <%=author.userName%> for sharing</span>
+<a href="https://www.youtube.com/results?search_query=<%=lesson.bookTitle%>"><i class="fa-brands fa-youtube"></i>Search this book on Youtube</a>
 
+<button onclick="copyDivToClipboard()">Copy Lesson to Clipboard</button>
+<span>Thanks <b><%=author.userName%></b> for sharing this lesson.</span>
 
+<!-- 
+     user Id  <%=lesson.user%>
+     current logged in user <%=user.userName%>
+     user of the post               <%=author.userName%> 
+ -->
 <%- include('partials/footer') -%>
+
+
+
+  <script>
+      function copyDivToClipboard() {
+          var range = document.createRange();
+          range.selectNode(document.getElementById("copyMe"));
+          window.getSelection().removeAllRanges(); // clear current selection
+          window.getSelection().addRange(range); // to select text
+          document.execCommand("copy");
+          window.getSelection().removeAllRanges();// to deselect
+      }
+  </script>
