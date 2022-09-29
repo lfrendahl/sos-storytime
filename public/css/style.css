@@ -62,6 +62,14 @@ nav a:hover {
 }
 
 
+/***************** Index Page ************************/
+#heroimage {
+    height: 290px;
+    width: 500px;
+    background-image: url("/imgs/seacreaturesbook.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
 
 /******************   Profile   ***********************/
 .dashboard {

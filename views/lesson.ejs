@@ -3,6 +3,28 @@
 Show one specific lesson and let you edit like save copy and more.
 
 
+  <!--Review action buttons-->
+  <%if(user){%>
+    <%=user.userName%>  <%=author.userName%> 
+    <%if(user.userName.toString()==author.userName.toString()){%>
+    <div class="template-icons">
+    <h2>You are the correct user for this profile. You will be able to do things here in a bit.</h2>
+    Edit <i class="fa-solid fa-pen-to-square"></i>
+    Delete 
+
+    <form
+    action="/lessons/deleteLesson/<%= lesson.id %>?_method=DELETE"
+    method="POST"
+  >
+    <button type="submit"><i class="fa-solid fa-delete-left"></i></button>
+  </form>
+
+
+    </div>
+    <%}%>
+  
+ <% }%>
+
 <div id="copyMe">
         <h2>Title: <%=lesson.bookTitle%></h2>
         <h4>Author: <%=lesson.bookAuthor%></h4>
@@ -11,8 +33,7 @@ Show one specific lesson and let you edit like save copy and more.
         <h4>Journal Activity: <%=lesson.lessonActivity%></h4>
 </div>
 
-<a href="https://www.youtube.com/results?search_query=<%=lesson.bookTitle%>"><i class="fa-brands fa-youtube"></i>Search this book on Youtube</a>
-
+<a href="https://www.youtube.com/results?search_query=<%=lesson.bookTitle%>"><button><i class="fa-brands fa-youtube"></i>Search this book on Youtube</button></a>
 <button onclick="copyDivToClipboard()">Copy Lesson to Clipboard</button>
 <span>Thanks <b><%=author.userName%></b> for sharing this lesson.</span>
 
@@ -33,5 +54,6 @@ Show one specific lesson and let you edit like save copy and more.
           window.getSelection().addRange(range); // to select text
           document.execCommand("copy");
           window.getSelection().removeAllRanges();// to deselect
+          alert('Lesson is copied to your clipboard')
       }
   </script>
