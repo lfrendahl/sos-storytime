@@ -1,0 +1,55 @@
+<%- include('partials/header') -%>
+
+Show one specific lesson and let you edit like save copy and more.
+
+
+
+
+
+  <h2>Edit your lesson:</h2>
+  <form action="/lessons/<%= lesson.id %>/editLesson/?_method=PUT" method="POST">
+    <div>
+        <label for="bookTitle">Book Title</label>
+        <input type="text" id="bookTitle" name="bookTitle" value="<%= lesson.bookTitle%>">
+    </div>
+    <div>
+      <label for="bookAuthor" >Author</label>
+      <input type="text" id="bookAuthor" name="bookAuthor" value="<%= lesson.bookAuthor%>">
+    </div>
+    <div>
+         <label for="vocabSkill">Choose a vocabulary skill:</label>
+                <select name="vocabSkill" id="vocabSkill">
+                      <option value="Antonyms" <%= lesson.vocabSkill == "Antonyms" ? 'selected' : '' %>>Antonyms</option>
+                      <option value="Compound Words" <%= lesson.vocabSkill == "Compound Words" ? 'selected' : '' %>>Compound Words</option>
+                      <option value="Context Clues" <%= lesson.vocabSkill == "Context Clues" ? 'selected' : '' %>>Context Clues</option>
+                      <option value="Greek and Latin Roots" <%= lesson.vocabSkill == "Greek and Latin Roots" ? 'selected' : '' %>>Greek and Latin Roots</option>                   
+                      <option value="Idioms" <%= lesson.vocabSkill == "Idioms" ? 'selected' : '' %>>Idioms</option>
+                      <option value="Multiple Meaning Words" <%= lesson.vocabSkill == "Multiple Meaning Words" ? 'selected' : '' %>>Multiple Meaning Words</option>
+                      <option value="Prefixes and Suffixes" <%= lesson.vocabSkill == "Prefixes and Suffixes" ? 'selected' : '' %>>Prefixes and Suffixes</option>
+                      <option value="Shades of Meaning" <%= lesson.vocabSkill == "Shades of Meaning" ? 'selected' : '' %>>Shades of Meaning</option>
+                      <option value="Synonyms" <%= lesson.vocabSkill == "Synonyms" ? 'selected' : '' %>>Synonyms</option>                                        
+                </select>
+    </div>
+    <div>
+      <label for="lessonIntro">Book Introduction</label>
+      <textarea id="lessonIntro" name="lessonIntro" style="width:50%; height: 100px;"><%= lesson.lessonIntro%></textarea>
+    </div>
+    <div>
+      <label for="lessonActivity">Journal Activity</label>
+      <textarea id="lessonActivity" name="lessonActivity"><%= lesson.lessonActivity%></textarea>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+
+
+
+<!-- 
+     user Id  <%=lesson.user%>
+     current logged in user <%=user.userName%>
+     user of the post               <%=author.userName%> 
+ -->
+<%- include('partials/footer') -%>
+
+
+

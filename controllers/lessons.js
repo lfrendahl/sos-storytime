@@ -27,6 +27,15 @@ module.exports = {
       console.log(err);
     }
   },
+  getEditableLesson: async (req, res) => {
+    try {
+      const lesson = await Lesson.findById(req.params.id)
+      const author = await User.findById(lesson.user) 
+      res.render("editlesson.ejs", { lesson: lesson, user: req.user, author: author});
+    } catch (err) {
+      console.log(err);
+    }
+  },
   createLesson: async (req, res) => {
     try {
       await Lesson.create({
@@ -40,6 +49,24 @@ module.exports = {
     console.log("Lesson has been added!");
     res.redirect("/profile");
 
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  updateLesson: async (req, res) => {
+    try {
+      await Lesson.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          bookTitle: req.body.bookTitle,
+          bookAuthor: req.body.bookAuthor, 
+          vocabSkill: req.body.vocabSkill,
+          lessonIntro: req.body.lessonIntro, 
+          lessonActivity: req.body.lessonActivity, 
+        }
+      );
+      console.log("Lesson updated");
+      res.redirect(`/lessons/${req.params.id}`);
     } catch (err) {
       console.log(err);
     }
