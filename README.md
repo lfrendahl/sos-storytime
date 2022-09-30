@@ -1,20 +1,22 @@
-# Install
+# SOS Lesson Library
 
-`npm install`
+### This resource was built for educators as they plan and executive lessons based on vocabulary skills. It is based on the pedagogical principal that quality reading instruction is centered around authentic texts, but most importantly it is reponsive to the planning contraints currently placed on educators. Site functionality was designed to support ease of access in browsing to find the perfect lesson, accessing the supporting text, and copying text that can be pasted directly into lesson plans.
 
----
+**Link to project:** https://github.com/lfrendahl/sos-storytime/
 
-# Things to add
 
-- Create a `.env` file in config folder and add the following as `key = value`
-  - PORT = 2121 (can be any port example: 3000)
-  - DB_STRING = `your database URI`
-  - CLOUD_NAME = `your cloudinary cloud name`
-  - API_KEY = `your cloudinary api key`
-  - API_SECRET = `your cloudinary api secret`
+![SOS storytime homepage](image coming soon)
 
----
+## How It's Made:
 
-# Run
+**Tech used:** EJS, CSS, MongoDB, Node.js
 
-`npm start`
+The website is built mainly for desktop functionality as this would be the main way where teachers access it to directly share with their lessons or their students. The mobile version focuses on ease of browsing book titles and lesson activities for immediate implementation.
+
+## Optimization Plan
+
+This project seeks to crowdsource solid lessons from educators. While the site has pregenerated lesson plans by TpT author TeachingRaptor, true optiminization is helping incentivize users to submit their own lessons despite their busy schedules. Features such as visible lesson count and ability to link directly to their own Tpt store are ways that have been planned to support the growth of this teacher-built lesson library. 
+
+## Lessons Learned:
+
+This project was individually created and it allowed me to build great familiarity with building the backend routes that make a project successful. 
