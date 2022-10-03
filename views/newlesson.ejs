@@ -1,0 +1,43 @@
+<%- include('partials/header') -%>
+
+<h2>Share a lesson with the rest of the community:</h2>
+<form action="/profile/postNewLesson" method="POST">
+  <div>
+      <label for="bookTitle">Book Title</label>
+      <input type="text" id="bookTitle" name="bookTitle">
+  </div>
+  <div>
+    <label for="bookAuthor" >Author</label>
+    <input type="text" id="bookAuthor" name="bookAuthor">
+  </div>
+  <div>
+       <label for="vocabSkill">Choose a vocabulary skill:</label>
+              <select name="vocabSkill" id="vocabSkill">
+                <option value="Antonyms">Antonyms</option>
+                    <option value="Compound Words">Compound Words</option>
+                    <option value="Context Clues">Context Clues</option>
+                    <option value="Greek and Latin Roots">Greek and Latin Roots</option>                   
+                    <option value="Idioms">Idioms</option>
+                    <option value="Multiple Meaning Words">Multiple Meaning Words</option>
+                    <option value="Prefixes and Suffixes">Prefixes and Suffixes</option>
+                    <option value="Shades of Meaning">Shades of Meaning</option>
+                    <option value="Synonyms">Synonyms</option>                                        
+              </select>
+  </div>
+  <div>
+    <label for="lessonIntro">Book Introduction</label>
+    <textarea id="lessonIntro" name="lessonIntro"></textarea>
+  </div>
+  <div>
+    <label for="lessonActivity">Journal Activity</label>
+    <textarea id="lessonActivity" name="lessonActivity"></textarea>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+
+
+<%- include('partials/footer') -%>
+
+
+

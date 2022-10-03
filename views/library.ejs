@@ -14,9 +14,12 @@
     <option value="shadesOfMeaning">Shades of Meaning</option>
     <option value="synonyms">Synonyms</option>
   </select>
-  <h2> Or by book title: </h2>
-    <input id="search" type="search" placeholder="Input title..."> 
 </section>
+  
+  <section class="search"> 
+    <h2> Or by book title: </h2>
+    <input id="search" type="search" placeholder="Filter by Location"> 
+  </section>
 
           <ul>
               <%lessons.reverse().forEach(lesson=>{ %>  
@@ -32,3 +35,5 @@
           </ul>
 
 <%- include('partials/footer') -%>
+
+

@@ -1,12 +1,3 @@
-<%    function toggle_visibility(id) { %> 
-  <% let e = document.getElementById(id); %>
-
-  <%  if(e.style.display == 'block') { %>
-      <%  e.style.display = 'none'; %>
-      <%  } else { %>
-          <%  e.style.display = 'block'; %>
-          <%    } %>
-          <%  } %>
 
 <%- include('partials/header') -%>
 
@@ -14,9 +5,13 @@
   <p><i class="fa-solid fa-life-ring"></i> Welcome to Your Dashboard:<%= user.userName %></p>
 
       <section class="dashboard-options">
-        <div class="dashboard-options_box"><h3>Create a Lesson</h3><i class="fa-solid fa-pencil"></i></div>
-        <div class="dashboard-options_box"><h3>Saved Lessons</h3><i class="fa-solid fa-anchor"></i></i></div>
-        <div class="dashboard-options_box"><h3>Browse All</h3><i class="fa-solid fa-fish"></i></div>
+        <a href="/profile/newLesson">
+           <div class="dashboard-options_box"><h3>Create a Lesson</h3><i class="fa-solid fa-pencil"></i></div>
+        </a>
+        <!--<div class="dashboard-options_box"><h3>Saved Lessons</h3><i class="fa-solid fa-anchor"></i></i></div>-->
+        <a href="/lessons">
+          <div class="dashboard-options_box"><h3>Browse All</h3><i class="fa-solid fa-fish"></i></div>
+        </a>
       </section>      
 </section>
 <h1>Browse  <%= user.userName.toUpperCase() %>'S LESSONS</h1> 
@@ -36,41 +31,5 @@
                   <%})%>
 </section>
           
-            <h2>Share a lesson:</h2>
-            <form action="/lessons/createLesson" method="POST">
-              <div>
-                  <label for="bookTitle">Book Title</label>
-                  <input type="text" id="bookTitle" name="bookTitle">
-              </div>
-              <div>
-                <label for="bookAuthor" >Author</label>
-                <input type="text" id="bookAuthor" name="bookAuthor">
-              </div>
-              <div>
-                   <label for="vocabSkill">Choose a vocabulary skill:</label>
-                          <select name="vocabSkill" id="vocabSkill">
-                            <option value="Antonyms">Antonyms</option>
-                                <option value="Compound Words">Compound Words</option>
-                                <option value="Context Clues">Context Clues</option>
-                                <option value="Greek and Latin Roots">Greek and Latin Roots</option>                   
-                                <option value="Idioms">Idioms</option>
-                                <option value="Multiple Meaning Words">Multiple Meaning Words</option>
-                                <option value="Prefixes and Suffixes">Prefixes and Suffixes</option>
-                                <option value="Shades of Meaning">Shades of Meaning</option>
-                                <option value="Synonyms">Synonyms</option>                                        
-                          </select>
-              </div>
-              <div>
-                <label for="lessonIntro">Book Introduction</label>
-                <textarea id="lessonIntro" name="lessonIntro"></textarea>
-              </div>
-              <div>
-                <label for="lessonActivity">Journal Activity</label>
-                <textarea id="lessonActivity" name="lessonActivity"></textarea>
-              </div>
-              <button type="submit">Submit</button>
-            </form>
- 
-
-
+          
 <%- include('partials/footer') -%>

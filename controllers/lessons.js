@@ -36,6 +36,13 @@ module.exports = {
       console.log(err);
     }
   },
+  newLesson: async (req, res) => {
+    try {
+      res.render("newlesson.ejs", { user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   createLesson: async (req, res) => {
     try {
       await Lesson.create({

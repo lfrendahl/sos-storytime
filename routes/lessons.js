@@ -8,8 +8,6 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 router.get("/:id", ensureAuth, lessonsController.getLesson);
 router.get("/:id/editLesson/", ensureAuth, lessonsController.getEditableLesson);
 
-router.post("/createLesson", ensureAuth, lessonsController.createLesson);
-
 router.put("/likeLesson/:id", lessonsController.likeLesson);
 router.put("/:id/editLesson", ensureAuth, lessonsController.updateLesson);
 
