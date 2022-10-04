@@ -1,8 +1,20 @@
 <%- include('partials/header') -%>
 
+<script type="text/javascript">
+  function filterByVocab(value)
+  {
+    console.log(value);
+    let lessonsSkills = Array.from(document.querySelectorAll(".lesson_vocabSkill"));
+      console.log(lessonsSkills.map(elem => elem.innerText));
+  }
+  </script>
+
+
+
+
 <section class="lessonFilterOptions">
   <h2> Filter the lessons you see by vocabulary skill: </h2>
-  <select name="vocabSkill" id="vocabSkill">
+  <select name="vocabSkill" id="vocabSkill" onchange="filterByVocab(this.value)">
     <option value="value" selected>Choose a skill</option>
     <option value="antonyms">Antonyms</option>
     <option value="compoundWords">Compound Words</option>
@@ -16,24 +28,49 @@
   </select>
 </section>
   
+
   <section class="search"> 
     <h2> Or by book title: </h2>
-    <input id="search" type="search" placeholder="Filter by Location"> 
+    <input id="search" type="search" placeholder="Filter by Title"> 
   </section>
 
           <ul>
               <%lessons.reverse().forEach(lesson=>{ %>  
-                <li>
+                <li class="lesson_collapsed">
                    <a href="/lessons/<%=lesson._id%>">
-                        <h2>Title: <%=lesson.bookTitle%></h2>
-                        <span>Author: <%=lesson.bookAuthor%></span>
-                        <h4>Vocabulary Skill: <%=lesson.vocabSkill%></h4>
+                        <h4 class="lesson_title">Title: <%=lesson.bookTitle%></h4>
+                        <h4 class="lesson_author">Author: <%=lesson.bookAuthor%></h4>
+                        <h4 class="lesson_vocabSkill">Vocabulary Skill: <%=lesson.vocabSkill%></h4>
                     </a>
               <%})%>              
                 </li>  
                           
           </ul>
 
+          <script>
+            let input = document.getElementById("search")
+            console.log(input)
+            input.addEventListener('keyup', filterByTitle)
+            
+            function filterByTitle(){
+              let section=document.querySelectorAll('.lesson_collapsed')
+              let txtValue;
+              let filter = input.value.toUpperCase();
+              let title = document.querySelectorAll('.lesson_title')
+            
+              console.log(filter,title)
+              for (i = 0; i < title.length; i++) {
+                txtValue=title[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  section[i].style.display = "";
+                } else {
+                    section[i].style.display = "none";
+                }
+              }
+            }
+            </script>
+  
+  
 <%- include('partials/footer') -%>
 
 
