@@ -1,20 +1,22 @@
 <%- include('partials/header') -%>
 
-<script type="text/javascript">
-  function filterByVocab(value)
+
+  <script type="text/javascript">
+  let currentVocabFilter 
+
+  function setVocabValue(value)
   {
-    console.log(value);
-    let lessonsSkills = Array.from(document.querySelectorAll(".lesson_vocabSkill"));
-      console.log(lessonsSkills.map(elem => elem.innerText));
+    
+    currentVocabFilter = (value.options[value.selectedIndex].text);
+    filterByVocab()
   }
   </script>
 
 
 
-
 <section class="lessonFilterOptions">
   <h2> Filter the lessons you see by vocabulary skill: </h2>
-  <select name="vocabSkill" id="vocabSkill" onchange="filterByVocab(this.value)">
+  <select name="vocabSkill" id="vocabSkill" onchange="setVocabValue(this)">
     <option value="value" selected>Choose a skill</option>
     <option value="antonyms">Antonyms</option>
     <option value="compoundWords">Compound Words</option>
@@ -44,7 +46,9 @@
                     </a>
               <%})%>              
                 </li>  
-                          
+                <li>
+                  <h4> No more lessons to display. </h4>
+                </li>          
           </ul>
 
           <script>
@@ -58,7 +62,8 @@
               let filter = input.value.toUpperCase();
               let title = document.querySelectorAll('.lesson_title')
             
-              console.log(filter,title)
+              //console.log(filter,title)
+
               for (i = 0; i < title.length; i++) {
                 txtValue=title[i].innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -68,6 +73,25 @@
                 }
               }
             }
+
+            function filterByVocab(){
+            let section=document.querySelectorAll('.lesson_collapsed')
+              let txtValue;
+              let filter = currentVocabFilter.toUpperCase();
+              let skill = document.querySelectorAll('.lesson_vocabSkill')
+            
+              console.log(filter,skill)
+
+              for (i = 0; i < skill.length; i++) {
+                txtValue=skill[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  section[i].style.display = "";
+                } else {
+                    section[i].style.display = "none";
+                }
+              }
+            }
+
             </script>
   
   
