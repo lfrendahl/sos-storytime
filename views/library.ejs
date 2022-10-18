@@ -49,15 +49,15 @@
                         <h4 class="lesson_author"><%=lesson.bookAuthor%></h4>
                       </div>
                       <div class="lessoninfo">
-                        <h4 class="lesson_vocabSkill">Shared by:</h4>
-                        <h4 class="lesson_vocabSkill">Vocabulary Skill: <%=lesson.vocabSkill%></h4>
+                        <h4 class="lesson_vocabSkill">Shared by: <span class="highlight"><%=lesson.vocabSkill%></span></h4>
+                        <h4 class="lesson_vocabSkill">Vocabulary Skill: <span class="highlight"><%=lesson.vocabSkill%></span></h4>
                      
                         <div class="shortdescription">
                              <p>
                             <!-- This checks if the string is longer than 199 and adds an ellipse or it displays the whole thing-->
                             <%= lesson.lessonActivity.substring(0,200).length > 199 ? lesson.lessonActivity.substring(0,200) + '...' : lesson.lessonActivity.substring(0,200) %> </p>
                         </div>
-                        <a class="readmore" href="/lessons/<%=lesson._id%>">Read More</a>
+                        <a class="readmore btn" href="/lessons/<%=lesson._id%>">Read More</a>
                       </div> 
                   </section>
                 
