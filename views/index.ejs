@@ -1,20 +1,33 @@
 <%- include('partials/header') -%>
 
 <main>
+    
         <section class="hero">
-          <h1 class="">SOS Lesson Library</h1>
-          <span>Book based instruction for when you are in a pinch”</span>
+          <div class="title">
+              <h1 class='initials' id="title">SOS</h1>
+              <h1 class="title">Lesson Library</h1>
+          </div>
+          <span id="tagline">Book based instruction for when you are in a pinch.</span>
         </section>
         <section class="main">
-          <div class="maintext">
-            <p>This resource was built for teachers. Browse our book-based vocabulary lesson plans. All you need is the book and to tell your students to get out their journals.  
-            </p>
-           
-          </div>
-          <div class="mainimage">
-            <img id='heroimage'>
-          </div>
-        </section>
+              <div class="maintext">
+                  <p>This resource was created for teachers. All you need is the book and to tell your students to get out their journals. 
+                    Start browsing our <b>FREE</b> book-based vocabulary lessons or make an account and share your go-to books.   
+                  </p>
+                  <%if(user){%>
+                    <a class='btn btn-browse' href="/lessons">Browse</a> 
+                  <%}else{ %>
+                    <a class='btn btn-browse' href="/lessons">Browse</a>
+                    <a class='btn btn-home' href="/login">Login</a>
+                    <a class='btn btn-home' href="/signup">Signup</a>
+                  <%}%>
+
+              </div>
+              <div class="mainimage">
+                <img id='heroimage'>
+              </div>
+      
+      </div>
 </main>
     
 

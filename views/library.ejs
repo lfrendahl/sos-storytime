@@ -38,7 +38,7 @@
           
           <section class="library">
             <li>
-              <h4 id="empty"> Browse <%= lessons.length === 1 ? lessons.length + ' lesson:'  :  lessons.length + ' lessons:' %> </h4>
+              <h4 id="empty"> Browse all <%= lessons.length === 1 ? lessons.length + ' lesson:'  :  lessons.length + ' lessons:' %> </h4>
             </li>  
               <%lessons.reverse().forEach(lesson=>{ %>  
                 <li>
@@ -49,7 +49,7 @@
                         <h4 class="lesson_author"><%=lesson.bookAuthor%></h4>
                       </div>
                       <div class="lessoninfo">
-                        <h4 class="lesson_vocabSkill">Shared by: <span class="highlight"><%=lesson.vocabSkill%></span></h4>
+                        <h4 class="lesson_author">Shared by: <span class="highlight"><%=lesson.vocabSkill%></span></h4>
                         <h4 class="lesson_vocabSkill">Vocabulary Skill: <span class="highlight"><%=lesson.vocabSkill%></span></h4>
                      
                         <div class="shortdescription">
@@ -96,14 +96,19 @@
               let txtValue;
               let filter = currentVocabFilter.toUpperCase();
               let skill = document.querySelectorAll('.lesson_vocabSkill')
+              console.log(skill)
               let filteredCount = 0
-              let currentSkill
-              console.log(filter,skill)
 
+              if (filter == "CHOOSE A SKILL") {
+                for (i = 0; i < skill.length; i++) {
+                  section[i].style.display = "";
+              }
+              empty.innerHTML = skill.length === 1 ? 'Browse all ' + skill.length + ' lesson:'  :  'Browse all ' + skill.length + ' lessons:'
+              return
+            }
               for (i = 0; i < skill.length; i++) {
                 txtValue=skill[i].innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                  currentSkill = txtValue.toLowerCase().split(':')[1].trim()
                   section[i].style.display = "";
                   filteredCount++
                 } else {
@@ -111,12 +116,13 @@
                 }
               }
               
+              console.log(skill)
               if (filteredCount === 0) {
-                empty.innerHTML = 'No lessons found.'
+                empty.innerHTML = 'No lessons found for ' + filter + ' .'
               } else if (filteredCount === 1) {
-                empty.innerHTML = 'Browse ' + filteredCount + ' lesson for ' + currentSkill + ':'
+                empty.innerHTML = 'Browse ' + filteredCount + ' lesson for ' + filter + ':'
               } else {
-                empty.innerHTML = 'Browse ' + filteredCount + ' lessons' + currentSkill + ':'
+                empty.innerHTML = 'Browse ' + filteredCount + ' lessons' + filter + ':'
               }
 
             }

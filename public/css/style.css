@@ -65,9 +65,62 @@ nav a:hover {
 
 
 /***************** Index Page ************************/
+.hero {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.main {
+    display:flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 70px;
+}
+
+#title {
+    font-size: 100px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    font-size: 50px;
+}
+#tagline {
+    font-weight: 900;
+    color: #FF5050;
+    font-style: italic;
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-top:-10px;
+}
+.maintext {
+width: 500px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-end;
+padding-right: 15px;
+}
+
+.maintext p {
+    text-align: right;
+}
+
+.mainimage {
+    padding-left: 15px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 100px;
+}
 #heroimage {
     height: 290px;
-    width: 500px;
+    width: 580px;
     background-image: url("/imgs/seacreaturesbook.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -102,7 +155,8 @@ nav a:hover {
 .dashboard-options_box {
     width: 200px;
     height: 60px;
-    background-color: #38468b;
+    background-image: linear-gradient(45deg,#e3ded8,#eeebe8);
+    border: 1.4px solid #34344A;
     border-radius: 15px; 
     display:flex;
     align-items: center;
@@ -112,7 +166,7 @@ nav a:hover {
 }
 
 .dashboard-options_box * {
-    color: white;
+    color:black;
     font-size: 18px;
     padding-left: 10px;
     padding-right: 10px;
@@ -208,6 +262,12 @@ nav a:hover {
  margin-bottom: 5px;
 }
 
+.lesson_author {
+    align-self: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .shortdescription {
     margin: 5px 20px;
     height:105px;
@@ -221,7 +281,7 @@ nav a:hover {
 }
 
 .btn {
-    border: 2px solid #34344A;
+    border: 1.4px solid #34344A;
     padding: 8px 10px 5px 10px;
     background-image: linear-gradient(45deg,#e3ded8,#eeebe8);
     border-radius: 5px ;
@@ -229,4 +289,30 @@ nav a:hover {
     height: 30px;
     box-shadow: 1px 1px 2px #DAD4CC;
 }
+
+
+.btn-browse {
+    width: 200px;
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background-image: linear-gradient(45deg, #FF5050 ,#DAD4CC);
+    
+}
+
+.btn-home {
+    width: 200px;
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background-image: linear-gradient(45deg, #38468b,#6963c7);
+    color:white;
+
+}
+
+
+.browse * {
+    justify-content: center;
+}
+
 
