@@ -13,9 +13,8 @@
   </script>
 
 
-
 <section class="lessonFilterOptions">
-  <h2> Filter the lessons you see by vocabulary skill: </h2>
+  <h2> Filter by vocab skill: </h2>
   <select name="vocabSkill" id="vocabSkill" onchange="setVocabValue(this)">
     <option value="value" selected>Choose a skill</option>
     <option value="antonyms">Antonyms</option>
@@ -30,26 +29,43 @@
   </select>
 </section>
   
-
-  <section class="search"> 
-    <h2> Or by book title: </h2>
-    <input id="search" type="search" placeholder="Filter by Title"> 
+  <section class="lessonFilterOptions"> 
+    <h2> Filter by book title: <input id="search" type="search" placeholder="Filter by Title"> </h2>
   </section>
 
-          <ul>
+
+        <ul>
+          
+          <section class="library">
+            <li>
+              <h4 id="empty"> Browse <%= lessons.length === 1 ? lessons.length + ' lesson:'  :  lessons.length + ' lessons:' %> </h4>
+            </li>  
               <%lessons.reverse().forEach(lesson=>{ %>  
-                <li class="lesson_collapsed">
-                   <a href="/lessons/<%=lesson._id%>">
-                        <h4 class="lesson_title">Title: <%=lesson.bookTitle%></h4>
-                        <h4 class="lesson_author">Author: <%=lesson.bookAuthor%></h4>
+                <li>
+                  <section class="lesson_collapsed">
+                      <div class="bookinfo">
+                        <h1 class="lesson_title"><%=lesson.bookTitle%> </h4>
+                        <h4 class="lesson_by" > - </h4>
+                        <h4 class="lesson_author"><%=lesson.bookAuthor%></h4>
+                      </div>
+                      <div class="lessoninfo">
+                        <h4 class="lesson_vocabSkill">Shared by:</h4>
                         <h4 class="lesson_vocabSkill">Vocabulary Skill: <%=lesson.vocabSkill%></h4>
-                    </a>
+                     
+                        <div class="shortdescription">
+                             <p>
+                            <!-- This checks if the string is longer than 199 and adds an ellipse or it displays the whole thing-->
+                            <%= lesson.lessonActivity.substring(0,200).length > 199 ? lesson.lessonActivity.substring(0,200) + '...' : lesson.lessonActivity.substring(0,200) %> </p>
+                        </div>
+                        <a class="readmore" href="/lessons/<%=lesson._id%>">Read More</a>
+                      </div> 
+                  </section>
+                
               <%})%>              
                 </li>  
-                <li>
-                  <h4> No more lessons to display. </h4>
-                </li>          
+                      
           </ul>
+        </section>
 
           <script>
             let input = document.getElementById("search")
@@ -76,20 +92,33 @@
 
             function filterByVocab(){
             let section=document.querySelectorAll('.lesson_collapsed')
+            let empty=document.getElementById('empty')
               let txtValue;
               let filter = currentVocabFilter.toUpperCase();
               let skill = document.querySelectorAll('.lesson_vocabSkill')
-            
+              let filteredCount = 0
+              let currentSkill
               console.log(filter,skill)
 
               for (i = 0; i < skill.length; i++) {
                 txtValue=skill[i].innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  currentSkill = txtValue.toLowerCase().split(':')[1].trim()
                   section[i].style.display = "";
+                  filteredCount++
                 } else {
                     section[i].style.display = "none";
                 }
               }
+              
+              if (filteredCount === 0) {
+                empty.innerHTML = 'No lessons found.'
+              } else if (filteredCount === 1) {
+                empty.innerHTML = 'Browse ' + filteredCount + ' lesson for ' + currentSkill + ':'
+              } else {
+                empty.innerHTML = 'Browse ' + filteredCount + ' lessons' + currentSkill + ':'
+              }
+
             }
 
             </script>

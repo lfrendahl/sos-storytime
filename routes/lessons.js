@@ -5,7 +5,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Post Routes - simplified for now
 
-router.get("/:id", ensureAuth, lessonsController.getLesson);
+router.get("/:id", lessonsController.getLesson);
 router.get("/:id/editLesson/", ensureAuth, lessonsController.getEditableLesson);
 
 router.put("/likeLesson/:id", lessonsController.likeLesson);
