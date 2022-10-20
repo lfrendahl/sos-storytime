@@ -1,34 +1,52 @@
 
 <%- include('partials/header') -%>
 
-<section class="dashboard">
-  <p><i class="fa-solid fa-life-ring"></i> Welcome to Your Dashboard:<%= user.userName %></p>
-
-      <section class="dashboard-options">
-        <a href="/profile/newLesson">
-           <div class="dashboard-options_box"><h3>Create a Lesson</h3><i class="fa-solid fa-pencil"></i></div>
-        </a>
-        <!--<div class="dashboard-options_box"><h3>Saved Lessons</h3><i class="fa-solid fa-anchor"></i></i></div>-->
-        <a href="/lessons">
-          <div class="dashboard-options_box"><h3>Browse All</h3><i class="fa-solid fa-fish"></i></div>
-        </a>
-      </section>      
+<section class="loggedin-row">
+  <i class="fa-solid fa-life-ring fa-2x highlight2"></i><p> Welcome to Your Dashboard: <%= user.userName.toUpperCase() %></p><i class="fa-solid fa-life-ring fa-2x highlight2"></i>
 </section>
-<h1>Browse  <%= user.userName.toUpperCase() %>'S LESSONS</h1> 
+
+<section class="dashboard-options">
+  <a href="/profile/newLesson">
+     <div class="dashboard-options_box"><h3>Create a Lesson</h3><i class="fa-solid fa-pencil"></i></div>
+  </a>
+  <!--<div class="dashboard-options_box"><h3>Saved Lessons</h3><i class="fa-solid fa-anchor"></i></i></div>-->
+  <a href="/lessons">
+    <div class="dashboard-options_box"><h3>Browse All</h3><i class="fa-solid fa-fish"></i></div>
+  </a>
+</section>      
 
 
-
-<section>
-
+<section class="library">
+  <li>
+    <h1 id="empty"> Browse  <%= user.userName.toUpperCase() %>'S lessons </h1>
+  </li>  
    
     <%lessons.reverse().forEach(lesson=>{ %>    
-           <a href="/lessons/<%=lesson._id%>">
-                  <h2>Title: <%=lesson.bookTitle%></h2>
-                  <span>Author: <%=lesson.bookAuthor%></span>
-                  <h4>Type: <%=lesson.vocabSkill%></h4>
-           </a>
-         
-                  <%})%>
+      <a href="/lessons/<%=lesson._id%>">
+      <section class="lesson_collapsed">
+        <div class="bookinfo">
+          <h1 class="lesson_title"><%=lesson.bookTitle%> </h4>
+          <h4 class="lesson_by" > - </h4>
+          <h4 class="lesson_author"><%=lesson.bookAuthor%></h4>
+        </div>
+        <div class="lessoninfo">
+          <h4 class="lesson_vocabSkill">Vocabulary Skill: <span class="highlight"><%=lesson.vocabSkill%></span></h4>
+          <div class="shortdescription">
+            <p>
+           <!-- This checks if the string is longer than 199 and adds an ellipse or it displays the whole thing-->
+           <%= lesson.lessonIntro.substring(0,200).length > 199 ? lesson.lessonIntro.substring(0,200) + '...' : lesson.lessonIntro.substring(0,200) %>  </p>
+       </div>
+       <a class="highlight readmore" href="/lessons/<%=lesson._id%>">Click to Read More</a>
+     </div> 
+ </section>
+</a>
+<%})%>       
+
+
+
+
+           
+          
 </section>
           
           

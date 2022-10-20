@@ -155,7 +155,7 @@ padding-right: 15px;
 .dashboard-options_box {
     width: 200px;
     height: 60px;
-    background-image: linear-gradient(45deg,#e3ded8,#eeebe8);
+    background-image: linear-gradient(45deg, #38468b,#6963c7);
     border: 1.4px solid #34344A;
     border-radius: 15px; 
     display:flex;
@@ -166,7 +166,7 @@ padding-right: 15px;
 }
 
 .dashboard-options_box * {
-    color:black;
+    color:white;
     font-size: 18px;
     padding-left: 10px;
     padding-right: 10px;
@@ -228,10 +228,26 @@ padding-right: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-content: center;
     justify-content: center;
     margin-top: 20px;
 }
 
+.loggedin-row{
+    width: 100%;
+    background-image: linear-gradient(45deg, #FF5050 ,#ED928E);
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.loggedin-row p {
+    margin: 40px 10px;
+    font-size: 30px;
+}
 
 .loggedin_buttons{
     width: 100%;
