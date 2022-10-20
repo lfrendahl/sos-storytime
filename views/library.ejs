@@ -33,6 +33,12 @@
     <h2> Filter by book title: <input id="search" type="search" placeholder="Filter by Title"> </h2>
   </section>
 
+<section>
+
+
+
+</section>
+
 
         <ul>
           
@@ -41,26 +47,32 @@
               <h4 id="empty"> Browse all <%= lessons.length === 1 ? lessons.length + ' lesson:'  :  lessons.length + ' lessons:' %> </h4>
             </li>  
               <%lessons.reverse().forEach(lesson=>{ %>  
-                <li>
-                  <section class="lesson_collapsed">
+                  <li>
+                    <a href="/lessons/<%=lesson._id%>">
+                     <section class="lesson_collapsed">
                       <div class="bookinfo">
                         <h1 class="lesson_title"><%=lesson.bookTitle%> </h4>
                         <h4 class="lesson_by" > - </h4>
                         <h4 class="lesson_author"><%=lesson.bookAuthor%></h4>
                       </div>
                       <div class="lessoninfo">
-                        <h4 class="lesson_author">Shared by: <span class="highlight"><%=lesson.vocabSkill%></span></h4>
+                        <h4 class="lesson_author">Shared by: <span class="highlight"><%=lesson.user%> 
+                         <% authors.forEach(author => author._id === lesson.user) %>
+                        
+                        
+                        
+                        </span></h4>
                         <h4 class="lesson_vocabSkill">Vocabulary Skill: <span class="highlight"><%=lesson.vocabSkill%></span></h4>
                      
                         <div class="shortdescription">
                              <p>
                             <!-- This checks if the string is longer than 199 and adds an ellipse or it displays the whole thing-->
-                            <%= lesson.lessonActivity.substring(0,200).length > 199 ? lesson.lessonActivity.substring(0,200) + '...' : lesson.lessonActivity.substring(0,200) %> </p>
+                            <%= lesson.lessonIntro.substring(0,200).length > 199 ? lesson.lessonIntro.substring(0,200) + '...' : lesson.lessonIntro.substring(0,200) %>  </p>
                         </div>
-                        <a class="readmore btn" href="/lessons/<%=lesson._id%>">Read More</a>
+                        <a class="highlight readmore" href="/lessons/<%=lesson._id%>">Click to Read More</a>
                       </div> 
                   </section>
-                
+                </a>
               <%})%>              
                 </li>  
                       
@@ -69,7 +81,7 @@
 
           <script>
             let input = document.getElementById("search")
-            console.log(input)
+            //console.log(input)
             input.addEventListener('keyup', filterByTitle)
             
             function filterByTitle(){
@@ -77,6 +89,7 @@
               let txtValue;
               let filter = input.value.toUpperCase();
               let title = document.querySelectorAll('.lesson_title')
+              let empty=document.getElementById('empty')
             
               //console.log(filter,title)
 
@@ -87,6 +100,7 @@
                 } else {
                     section[i].style.display = "none";
                 }
+                empty.innerHTML = 'Browse lessons matching ' + filter + ' .'
               }
             }
 
@@ -96,7 +110,7 @@
               let txtValue;
               let filter = currentVocabFilter.toUpperCase();
               let skill = document.querySelectorAll('.lesson_vocabSkill')
-              console.log(skill)
+              //console.log(skill)
               let filteredCount = 0
 
               if (filter == "CHOOSE A SKILL") {
@@ -122,7 +136,7 @@
               } else if (filteredCount === 1) {
                 empty.innerHTML = 'Browse ' + filteredCount + ' lesson for ' + filter + ':'
               } else {
-                empty.innerHTML = 'Browse ' + filteredCount + ' lessons' + filter + ':'
+                empty.innerHTML = 'Browse ' + filteredCount + ' lessons for ' + filter + ':'
               }
 
             }

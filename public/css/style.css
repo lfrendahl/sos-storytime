@@ -213,8 +213,56 @@ padding-right: 15px;
     align-self: center;
 }
 
+#message {
+    color:#38468b;
+    font-size: 30px;
+    margin: 15px 0px 0px 0px;
+    align-self: center;
+}
+
 /************ lesson card *******************/
+
+.loggedin{
+    width: 100%;
+    background-image: linear-gradient(45deg, #FF5050 ,#ED928E);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+.loggedin_buttons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.loggedin_buttons * {
+   margin: 0 5px 0 5px;
+}
 .lesson_collapsed {
+    width: 650px;
+    margin: 20px 0px;
+    border: 40px solid #38468b;
+    border-bottom: 5px solid #38468b;
+    border-top: 5px solid #38468b;
+    border-radius: 5px;
+    border-image: linear-gradient(45deg, #38468b,#6963c7) 1;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    box-shadow: 6px 6px 10px #e3ded8;
+}
+
+.lesson_collapsed:hover {
+background-color: #F7F5F4;
+}
+
+.lesson_expanded {
     width: 650px;
     margin: 20px 0px;
     border: 40px solid #38468b;
@@ -229,16 +277,31 @@ padding-right: 15px;
 }
 
 
+
 .bookinfo {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: -20px;
-    height: 90px;
-    
+    height: 90px;   
 }
 
 .bookinfo * {
+    padding: 0 3px;
+    font-size: 30px;
+    color: black;
+}
+
+.bookinfo_expanded {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.bookinfo_expanded * {
     padding: 0 3px;
     font-size: 30px;
     color: black;
@@ -249,11 +312,29 @@ padding-right: 15px;
     font-weight: 900;
 }
 
+.highlight2 {
+    color: #ffffff  ;
+    font-weight: 900;
+}
 
 
 .lessoninfo {
     display: flex;
     flex-direction: column;
+}
+
+.lessoninfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.lessoninfo h4{
+  text-align: center;
+ }
+
+.lessoninfo span{
+   text-align: center;
+   margin: 15px 0px;
 }
 
 .lesson_vocabSkill {
@@ -272,18 +353,36 @@ padding-right: 15px;
     margin: 5px 20px;
     height:105px;
 }
+
+.longdescription {
+    margin: 5px 20px;
+    font-weight: 500;
+}
+/* for button plan
 .readmore {
     width: 100px;
     align-self: flex-end;
     margin-right: 15px;
     margin-bottom: 15px;
     margin-top: 0px;
+} */
+
+.readmore {
+    align-self: flex-end;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    font-weight: 400;
+}
+
+.readmore:hover {
+    font-weight:700;
 }
 
 .btn {
     border: 1.4px solid #34344A;
     padding: 8px 10px 5px 10px;
-    background-image: linear-gradient(45deg,#e3ded8,#eeebe8);
+    background-image: linear-gradient(45deg, #FF5050 ,#DAD4CC);
     border-radius: 5px ;
     font-weight: 700;
     height: 30px;

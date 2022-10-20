@@ -1,47 +1,49 @@
 <%- include('partials/header') -%>
 
-Show one specific lesson and let you edit like save copy and more.
-
-
-  <!--Review action buttons-->
   <%if(user){%>
-    <%=user.userName%>  <%=author.userName%> 
-    <%if(user.userName.toString()==author.userName.toString()){%>
-    <div class="template-icons">
-    <h2>You are the correct user for this profile. You will be able to do things here in a bit.</h2>
-   
-    Edit <a href="<%= lesson.id %>/editLesson"><i class="fa-solid fa-pen-to-square"></i></a>
-    Delete 
-
-    <form
-      action="/lessons/deleteLesson/<%= lesson.id %>?_method=DELETE"
-      method="POST">
-      <button type="submit" onclick= "return confirm('Are you sure you want to delete this lesson?')")><i class="fa-solid fa-delete-left"></i></button>
-    </form>
-
-
+  
+    <%if(user.userName.toString()==author.userName.toString()){%> 
+      
+    <div class="loggedin">
+            <h3>Thanks <b class="highlight2"><%=author.userName%></b> for sharing this lesson with the community.</h3>
+            <div class="loggedin_buttons">
+                <a href="<%= lesson.id %>/editLesson"><button> Edit <i class="fa-solid fa-pen-to-square"></i></button></a>
+                <form
+                  action="/lessons/deleteLesson/<%= lesson.id %>?_method=DELETE"
+                  method="POST">
+                  <button type="submit" onclick= "return confirm('Are you sure you want to delete this lesson?')")>Delete <i class="fa-solid fa-delete-left"></i></button>
+                </form>
+            </div>
     </div>
     <%}%>
   
  <% }%>
+ 
+ <section class="library">
+  <li>
+    <h4 id="message">
+      <a href="https://www.youtube.com/results?search_query=<%=lesson.bookTitle%>++read+aloud" target="_blank"><button><i class="fa-brands fa-youtube"></i> Search on Youtube</button></a>
+      <button onclick="copyDivToClipboard()"><i class="fa-regular fa-copy"></i> Copy to Clipboard</button>
+    </h4>
+  </li>  
 
-<div id="copyMe">
-        <h2>Title: <%=lesson.bookTitle%></h2>
-        <h4>Author: <%=lesson.bookAuthor%></h4>
-        <h4>Skill: <%=lesson.vocabSkill%></h4>
-        <h4>Lesson Introduction: <%=lesson.lessonIntro%></h4>
-        <h4>Journal Activity: <%=lesson.lessonActivity%></h4>
-</div>
+ <section class="lesson_expanded">
+    <div id="copyMe">
+          <div class="bookinfo_expanded">
+                <h2 class="lesson_title">Title: <%=lesson.bookTitle%></h2>
+                <h4 class="lesson_author"> Author: <%=lesson.bookAuthor%></h4>
+          </div>
+          <div class="lessoninfo">
+                <h4 class="lesson_vocabSkill"><b>Skill:</b> <%=lesson.vocabSkill%></h4>
+                <h4 class="longdescription"><b>Lesson Introduction:</b> <%=lesson.lessonIntro%></h4>
+                <h4 class="longdescription"><b>Journal Activity:</b> <%=lesson.lessonActivity%></h4>
+                <span>Thanks to <b class="highlight"><%=author.userName%></b> for sharing this lesson.</span>
+         </div>
+    </div>
+</section>
+</section>
 
-<a href="https://www.youtube.com/results?search_query=<%=lesson.bookTitle%>read+aloud"><button><i class="fa-brands fa-youtube"></i>Search this book on Youtube</button></a>
-<button onclick="copyDivToClipboard()">Copy Lesson to Clipboard</button>
-<span>Thanks <b><%=author.userName%></b> for sharing this lesson.</span>
 
-<!-- 
-     user Id  <%=lesson.user%>
-     current logged in user <%=user.userName%>
-     user of the post               <%=author.userName%> 
- -->
 <%- include('partials/footer') -%>
 
 
@@ -54,6 +56,6 @@ Show one specific lesson and let you edit like save copy and more.
           window.getSelection().addRange(range); // to select text
           document.execCommand("copy");
           window.getSelection().removeAllRanges();// to deselect
-          alert('Lesson is copied to your clipboard')
+          alert('Lesson is on your clipboard. Happy planning!')
       }
   </script>

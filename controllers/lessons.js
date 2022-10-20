@@ -13,15 +13,17 @@ module.exports = {
   getLessons: async (req, res) => {
     try {
       const lessons = await Lesson.find().sort({ createdAt: "desc" }).lean();
-      res.render("library.ejs", { lessons: lessons, user: req.user });
+      const users = await User.find().lean();
+      console.log(users)
+      res.render("library.ejs", { lessons: lessons, user: req.user, authors: users });
     } catch (err) {
       console.log(err);
     }
   },
   getLesson: async (req, res) => {
     try {
-      const lesson = await Lesson.findById(req.params.id)
-      const author = await User.findById(lesson.user) 
+      const lesson = await Lesson.findById(req.params.id).lean();
+      const author = await User.findById(lesson.user)
       res.render("lesson.ejs", { lesson: lesson, user: req.user, author: author});
     } catch (err) {
       console.log(err);
