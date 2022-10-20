@@ -12,10 +12,11 @@ module.exports = {
   },
   getLessons: async (req, res) => {
     try {
-      const lessons = await Lesson.find().sort({ createdAt: "desc" }).lean();
-      const users = await User.find().lean();
-      console.log(users)
-      res.render("library.ejs", { lessons: lessons, user: req.user, authors: users });
+      const lessons = await Lesson.find().sort({ createdAt: "desc" })
+      .populate('user')
+      .lean()
+      console.log(lessons)
+      res.render("library.ejs", { lessons: lessons, user: req.user});
     } catch (err) {
       console.log(err);
     }

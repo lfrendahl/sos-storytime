@@ -7,7 +7,7 @@
     <div class="loggedin">
             <h3>Thanks <b class="highlight2"><%=author.userName%></b> for sharing this lesson with the community.</h3>
             <div class="loggedin_buttons">
-                <a href="<%= lesson.id %>/editLesson"><button> Edit <i class="fa-solid fa-pen-to-square"></i></button></a>
+                <a href="/<%= lesson.id %>/editLesson"><button> Edit <i class="fa-solid fa-pen-to-square"></i></button></a>
                 <form
                   action="/lessons/deleteLesson/<%= lesson.id %>?_method=DELETE"
                   method="POST">

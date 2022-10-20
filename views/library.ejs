@@ -56,10 +56,9 @@
                         <h4 class="lesson_author"><%=lesson.bookAuthor%></h4>
                       </div>
                       <div class="lessoninfo">
-                        <h4 class="lesson_author">Shared by: <span class="highlight"><%=lesson.user%> 
-                         <% authors.forEach(author => author._id === lesson.user) %>
-                        
-                        
+                        <h4 class="lesson_author">Shared by: <span class="highlight"><%=lesson.user.userName%> 
+
+      
                         
                         </span></h4>
                         <h4 class="lesson_vocabSkill">Vocabulary Skill: <span class="highlight"><%=lesson.vocabSkill%></span></h4>
