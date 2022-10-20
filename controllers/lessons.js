@@ -15,7 +15,6 @@ module.exports = {
       const lessons = await Lesson.find().sort({ createdAt: "desc" })
       .populate('user')
       .lean()
-      console.log(lessons)
       res.render("library.ejs", { lessons: lessons, user: req.user});
     } catch (err) {
       console.log(err);
@@ -25,6 +24,7 @@ module.exports = {
     try {
       const lesson = await Lesson.findById(req.params.id).lean();
       const author = await User.findById(lesson.user)
+      console.log(lesson)
       res.render("lesson.ejs", { lesson: lesson, user: req.user, author: author});
     } catch (err) {
       console.log(err);

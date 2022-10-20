@@ -7,7 +7,7 @@
     <div class="loggedin">
             <h3>Thanks <b class="highlight2"><%=author.userName%></b> for sharing this lesson with the community.</h3>
             <div class="loggedin_buttons">
-                <a href="/<%= lesson.id %>/editLesson"><button> Edit <i class="fa-solid fa-pen-to-square"></i></button></a>
+                <a href="<%= lesson._id %>/editLesson"><button> Edit <i class="fa-solid fa-pen-to-square"></i></button></a>
                 <form
                   action="/lessons/deleteLesson/<%= lesson.id %>?_method=DELETE"
                   method="POST">
@@ -39,6 +39,7 @@
                 <h4 class="longdescription"><b>Journal Activity:</b> <%=lesson.lessonActivity%></h4>
                 <span>Thanks to <b class="highlight"><%=author.userName%></b> for sharing this lesson.</span>
          </div>
+          
     </div>
 </section>
 </section>
