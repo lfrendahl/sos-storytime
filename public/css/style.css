@@ -274,9 +274,6 @@ padding-right: 15px;
     box-shadow: 6px 6px 10px #e3ded8;
 }
 
-.lesson_collapsed:hover {
-background-color: #F7F5F4;
-}
 
 .lesson_expanded {
     width: 650px;
@@ -414,6 +411,19 @@ background-color: #F7F5F4;
     background-image: linear-gradient(45deg, #FF5050 ,#DAD4CC);
     
 }
+
+.btn-return {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-image: linear-gradient(45deg, #FF5050 ,#DAD4CC);
+    border: 0px;
+    
+}
+
+
 
 .btn-home {
     width: 200px;
