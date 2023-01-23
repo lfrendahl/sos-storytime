@@ -22,7 +22,7 @@
  <section class="library">
   <li>
     <h4 id="message">
-      <a href="https://www.youtube.com/results?search_query=<%=lesson.bookTitle%>++read+aloud" target="_blank"><button><i class="fa-brands fa-youtube"></i> Search on Youtube</button></a>
+      <a href="https://www.youtube.com/results?search_query=<%=lesson.bookTitle%>++read+aloud" target="_blank"><button><i class="fa-brands fa-youtube"></i> Read on Youtube</button></a>
       <button onclick="copyDivToClipboard()"><i class="fa-regular fa-copy"></i> Copy to Clipboard</button>
     </h4>
   </li>  
@@ -33,13 +33,12 @@
    </form>
     <div id="copyMe">
           <div class="bookinfo_expanded">
-                <h2 class="lesson_title">Title: <%=lesson.bookTitle%></h2>
-                <h4 class="lesson_author"> Author: <%=lesson.bookAuthor%></h4>
+                <h2 class="lesson_title"><%=lesson.bookTitle%> - <%=lesson.bookAuthor%></h2>
           </div>
           <div class="lessoninfo">
                 <h4 class="lesson_vocabSkill"><b>Skill:</b> <%=lesson.vocabSkill%></h4>
-                <h4 class="longdescription"><b>Lesson Introduction:</b> <%=lesson.lessonIntro%></h4>
-                <h4 class="longdescription"><b>Journal Activity:</b> <%=lesson.lessonActivity%></h4>
+                <h4 class="longdescription"><b class="highlight">Lesson Introduction:</b> <%=lesson.lessonIntro%></h4>
+                <h4 class="longdescription"><b class="highlight">Journal Activity:</b> <%=lesson.lessonActivity%></h4>
                 <span>Thanks to <b class="highlight"><%=author.userName%></b> for sharing this lesson.</span>
          </div>
           

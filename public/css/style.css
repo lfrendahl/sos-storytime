@@ -310,6 +310,7 @@ padding-right: 15px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: -20px;
 }
 
 
@@ -352,8 +353,8 @@ padding-right: 15px;
 
 .lesson_vocabSkill {
  align-self: center;
- margin-top: 5px;
- margin-bottom: 5px;
+ margin-top: 10px;
+ margin-bottom: 20px;
 }
 
 .lesson_author {
@@ -368,8 +369,10 @@ padding-right: 15px;
 }
 
 .longdescription {
-    margin: 5px 20px;
+    margin: 10px 20px;
+    margin-bottom: 30px;
     font-weight: 500;
+    line-height: 25px;
 }
 /* for button plan
 .readmore {
