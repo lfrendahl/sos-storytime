@@ -4,9 +4,7 @@
 
 **Link to project:** https://sos-storytime.cyclic.app//
 
-
-![SOS storytime homepage](image coming soon)
-![score card with names and current scores](https://github.com/lfrendahl/sos-storytime/blob/980a95ed067e001c716c2b6a585b32af3d400538/public/imgs/sos-lessonlibrary.jpg)
+![SOS storytime homepage](https://github.com/lfrendahl/sos-storytime/blob/980a95ed067e001c716c2b6a585b32af3d400538/public/imgs/sos-lessonlibrary.jpg)
 
 ## How It's Made:
 
