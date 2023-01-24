@@ -153,7 +153,7 @@ padding-right: 15px;
 
 .dashboard-options_box {
     width: 200px;
-    height: 60px;
+    height: 30px;
     background-image: linear-gradient(45deg, #38468b,#6963c7);
     border: 1.4px solid #34344A;
     border-radius: 15px; 
@@ -161,7 +161,6 @@ padding-right: 15px;
     align-items: center;
     justify-content: center;
     margin: 0 20px;
-
 }
 
 .dashboard-options_box * {
@@ -242,6 +241,7 @@ padding-right: 15px;
     justify-content: center;
     margin-top: 20px;
     font-weight: 700;
+    height:85px;
 }
 
 .loggedin-row p {
@@ -736,5 +736,35 @@ nav ul * {
     padding: 0 3px;
     font-size: 20px;
 }
+
+.loggedin-row{
+    height: 50px;
+}
+
+
+.loggedin_buttons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.loggedin_buttons * {
+   margin: 0 5px 0 5px;
+}
+.dashboard-options {
+    width: 100%;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.dashboard-options_box {
+    width: 200px;
+    height: 30px;
+    font-size: 10px;
+    margin: 5px 0px;
+}
+
 
 }
