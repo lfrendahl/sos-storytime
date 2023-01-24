@@ -32,8 +32,10 @@
     <input type="button" class='btn-return' value="Return to Browsing" onclick="history.back()">
    </form>
     <div id="copyMe">
-          <div class="bookinfo_expanded">
-                <h2 class="lesson_title"><%=lesson.bookTitle%> - <%=lesson.bookAuthor%></h2>
+          <div class="bookinfo">
+                  <h1 class="lesson_title"><%=lesson.bookTitle%> </h4>
+                  <h4 class="lesson_by" > - </h4>
+                  <h4 class="lesson_author"><%=lesson.bookAuthor%></h4>
           </div>
           <div class="lessoninfo">
                 <h4 class="lesson_vocabSkill"><b>Skill:</b> <%=lesson.vocabSkill%></h4>

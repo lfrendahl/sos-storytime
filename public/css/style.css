@@ -265,7 +265,7 @@ padding-right: 15px;
     padding-left: 0px;
 }
 .lesson_collapsed {
-    width: 750px;
+    width: 800px;
     padding-left: 20px;
     padding-right: 20px;
     margin: 20px 0px;
@@ -282,7 +282,7 @@ padding-right: 15px;
 
 
 .lesson_expanded {
-    width: 650px;
+    width: 800px;
     margin: 20px 0px;
     border: 40px solid #38468b;
     border-bottom: 5px solid #38468b;
@@ -703,6 +703,16 @@ nav ul * {
     border-top: 2px solid #38468b;
     box-shadow: 3px 3px 5px #e3ded8;
 }
+
+.lesson_expanded {
+    width: 350px;
+    margin: 10px 0px;
+    border: 15px solid #38468b;
+    border-bottom: 2px solid #38468b;
+    border-top: 2px solid #38468b;
+    box-shadow: 3px 3px 5px #e3ded8;;
+}
+
 
 .bookinfo {
     flex-direction: column;
