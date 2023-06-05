@@ -3,7 +3,7 @@ const router = express.Router();
 const lessonsController = require("../controllers/lessons");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//Post Routes - simplified for now
+//Post Routes
 
 router.get("/:id", lessonsController.getLesson);
 router.get("/:id/editLesson/", ensureAuth, lessonsController.getEditableLesson);
