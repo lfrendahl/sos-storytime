@@ -1,6 +1,6 @@
 <%- include('partials/header') -%>
 
-<a href="/lessons/<%= lesson.id %>"><button> Cancel editing</button></a> 
+<a href="/lessons/<%= lesson.id %>"><button class="btn"> Cancel editing</button></a> 
 
   <h2>Edit your lesson:</h2>
   <form action="/lessons/<%= lesson.id %>/editLesson/?_method=PUT" method="POST">
