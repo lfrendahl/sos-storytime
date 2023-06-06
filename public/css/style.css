@@ -436,7 +436,16 @@ padding-right: 15px;
     margin-bottom: 10px;
 }
 
+.form-spacing {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 
+.form-spacing * {
+    margin-top:10px;
+    margin-bottom: 10px;
+}
 
 .btn-home {
     width: 200px;

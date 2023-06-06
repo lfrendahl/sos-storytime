@@ -3,7 +3,7 @@
 <a href="/lessons/<%= lesson.id %>"><button class="btn-spacing"> Cancel editing</button></a> 
 
   <h2>Edit your lesson:</h2>
-  <form action="/lessons/<%= lesson.id %>/editLesson/?_method=PUT" method="POST">
+  <form class='form-spacing' action="/lessons/<%= lesson.id %>/editLesson/?_method=PUT" method="POST">
     <div>
         <label for="bookTitle">Book Title</label>
         <input type="text" id="bookTitle" name="bookTitle" value="<%= lesson.bookTitle%>">
