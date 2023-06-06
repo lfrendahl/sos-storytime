@@ -1,7 +1,7 @@
 {
-  "name": "binary-upload-boom",
+  "name": "sos-lesson-libary",
   "version": "1.0.0",
-  "description": "100Devs Social Network",
+  "description": "A Lesson Library for Educators",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
